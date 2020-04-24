@@ -5,7 +5,7 @@ module.exports = {
 		if (typeof cb === "function") {
 			fetch('http://tinyurl.com/api-create.php?url=' + encodeURIComponent(url))
 				.then(chunk => {
-					cb(chunk.toString())
+					cb(chunk)
 				})
 				.catch(err => {
 					cb(null, err)
@@ -14,7 +14,7 @@ module.exports = {
 			return new Promise((resolve, reject) => {
 				fetch('http://tinyurl.com/api-create.php?url=' + encodeURIComponent(url))
 					.then(chunk => {
-						resolve(chunk.toString())
+						resolve(chunk)
 					})
 					.catch(err => {
 						reject(err)
